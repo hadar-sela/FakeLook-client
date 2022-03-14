@@ -1,0 +1,15 @@
+<div class="contain-register">
+    <h3>Register</h3>
+    <div class="input">
+        <input type="text" placeholder="User Name" [(ngModel)]="username">
+        <input type="text" placeholder="First Name" [(ngModel)]="firstname">
+        <input type="text" placeholder="Last Name" [(ngModel)]="lastname">
+        <input type="password" placeholder="Password" [(ngModel)]="password">
+        <input type="text" placeholder="BirthDate" [(ngModel)]="birthdate">
+        <input type="text" placeholder="Address" [(ngModel)]="address">
+        <input type="text" placeholder="Role" [(ngModel)]="role">
+    </div>
+    <div class="button">
+        <button (click)="submitUser()">Submit</button>
+    </div>
+</div>
