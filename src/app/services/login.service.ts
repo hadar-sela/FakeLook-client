@@ -11,9 +11,8 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  getUser(username: string): Observable<User>{
-    const url = environment.usersUrl + "/GetByUsername/" + username;
-    return this.http.get<User>(url);
+  getUser(user: User): Observable<User>{
+    return this.http.post<User>((environment.usersUrl + "/Login"), user);
   }
 
 }

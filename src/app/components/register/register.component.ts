@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { RegisterService } from 'src/app/services/register.service';
 
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   role!: string;
   message!: string;
 
-  constructor(private RegisterService: RegisterService) { 
+  constructor(private RegisterService: RegisterService, private readonly router: Router) { 
     const newUser= {} as User;
 
   }
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
       this.RegisterService.addNewUser(newUser).subscribe((result)=>{
       this.message='Added Successfully'
       })
+      this.router.navigate(['/login']);
     }
   }
 validateForm() {
