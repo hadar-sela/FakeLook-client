@@ -1,0 +1,40 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: 1px solid lightgrey;
+    width: 300px;
+    font-family: 'Segoe UI';
+}
+img{
+    width: 50;
+    height: 50px;
+}
+.input input{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    height: 5px;
+    font-family: 'Segoe UI';
+    transition: 0.5s;
+    background-color: transparent;
+    color: black;
+}
+
+.signup-button button{
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-bottom: 1px solid lightgray;
+}
+.loginbutton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

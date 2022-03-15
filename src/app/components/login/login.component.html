@@ -1,17 +1,25 @@
-<div class="contain-login">
-    <h3>Login</h3>
+<div class="all">
+    <div class="picture">
+        <img src='../assets/images/22.png' alt="No Picture">
+    </div>
+    <h3>Sign In</h3>
     <div class="input">
-        <input type="text" placeholder="Username" [(ngModel)]="username">
-        <br><br>
-        <input type="password" placeholder="Password" [(ngModel)]="password">
-        <br><br>
+        <div class="input-user">
+            <input type="text" placeholder="Username" [(ngModel)]="username">
+        </div>
+        <div class="input-password">
+            <input type="password" placeholder="Password" [(ngModel)]="password">
+        </div>
     </div>
     <div class="button">
-        <button (click)="login()">Login</button>
+        <div class="loginbutton">
+            <button (click)="login()">Login</button>
+        </div>
         <div class="message">
             {{message}}
+        <div class="signup-button">
+            Not yet a member?
+            <button (click)="signUp()">Sign Up</button>
         </div>
-        <br><br>
-        <button (click)="signUp()">Create new account</button>
     </div>
 </div>
