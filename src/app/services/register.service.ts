@@ -16,7 +16,7 @@ export class RegisterService {
     let httpOptions ={
       headers: new HttpHeaders({'Content-Type':'application/json'})
     }
-    return this.http.post<User>(environment.userssUrl,User,httpOptions);
+    return this.http.post<User>(environment.usersUrl,User,httpOptions);
   }
 
 }

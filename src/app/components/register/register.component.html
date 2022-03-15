@@ -1,15 +1,18 @@
 <div class="contain-register">
     <h3>Register</h3>
     <div class="input">
-        <input type="text" placeholder="User Name" [(ngModel)]="username">
-        <input type="text" placeholder="First Name" [(ngModel)]="firstname">
-        <input type="text" placeholder="Last Name" [(ngModel)]="lastname">
-        <input type="password" placeholder="Password" [(ngModel)]="password">
-        <input type="text" placeholder="BirthDate" [(ngModel)]="birthdate">
-        <input type="text" placeholder="Address" [(ngModel)]="address">
-        <input type="text" placeholder="Role" [(ngModel)]="role">
+        <input type="text" placeholder="User Name" [(ngModel)]="username" (keyup)="resetMessage()">
+        <input type="text" placeholder="First Name" [(ngModel)]="firstname" (keyup)="resetMessage()">
+        <input type="text" placeholder="Last Name" [(ngModel)]="lastname" (keyup)="resetMessage()">
+        <input type="password" placeholder="Password" [(ngModel)]="password" (keyup)="resetMessage()">
+        <input type="text" placeholder="BirthDate" [(ngModel)]="birthdate" (keyup)="resetMessage()">
+        <input type="text" placeholder="Address" [(ngModel)]="address" (keyup)="resetMessage()">
+        <input type="text" placeholder="Role" [(ngModel)]="role" (keyup)="resetMessage()">
     </div>
     <div class="button">
         <button (click)="submitUser()">Submit</button>
+    </div>
+    <div class="message">
+        {{message}}
     </div>
 </div>
