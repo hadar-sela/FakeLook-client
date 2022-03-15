@@ -1,1 +1,17 @@
-
+<div class="contain-login">
+    <h3>Login</h3>
+    <div class="input">
+        <input type="text" placeholder="Username" [(ngModel)]="username">
+        <br><br>
+        <input type="password" placeholder="Password" [(ngModel)]="password">
+        <br><br>
+    </div>
+    <div class="button">
+        <button (click)="login()">Login</button>
+        <div class="message">
+            {{message}}
+        </div>
+        <br><br>
+        <button>Create new account</button>
+    </div>
+</div>

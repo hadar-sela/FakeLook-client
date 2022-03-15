@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   birthdate!: string;
   address!: string;
   role!: string;
+  message!: string;
 
   constructor(private RegisterService: RegisterService) { 
     const newUser= {} as User;
@@ -23,19 +24,57 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
   submitUser(){
-    const newUser= {} as User;
-    newUser.username=this.username;
-    newUser.firstname=this.firstname;
-    newUser.lastname=this.lastname;
-    newUser.password=this.password;
-    newUser.birthdate=this.birthdate;
-    newUser.address=this.address;
-    newUser.role=this.role;
-    this.RegisterService.addNewUser(newUser).subscribe((result)=>{
-      console.log(result)
-  })
+    this.message="";
+    if(this.validateForm()){
+      const newUser= {} as User;
+      newUser.username=this.username;
+      newUser.firstname=this.firstname;
+      newUser.lastname=this.lastname;
+      newUser.password=this.password;
+      newUser.birthdate=this.birthdate;
+      newUser.address=this.address;
+      newUser.role=this.role;
+      this.RegisterService.addNewUser(newUser).subscribe((result)=>{
+      this.message='Added Successfully'
+      })
+    }
+  }
+validateForm() {
+  let answer = true;
+  if(!this.username ){
+    this.message="Enter username"
+    answer = false;
+  }
+  else if(!this.firstname){
+    this.message="Enter firstname"
+    answer=false
+  }
+  else if(!this.lastname){
+    this.message="Enter lastname"
+    answer=false
+  }
+  else if(!this.password){
+    this.message="Enter password"
+    answer=false
+  }
+  else if(!this.birthdate){
+    this.message="Enter birthdate"
+    answer=false
+  }
+  else if(!this.address){
+    this.message="Enter address"
+    answer=false
+  }
+  else if(!this.role){
+    this.message="Enter role"
+    answer=false
+  }
+  return answer
+}
+resetMessage(){
+  this.message=""
 }
 }
