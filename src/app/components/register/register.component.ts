@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
       newUser.role=this.role;
       this.RegisterService.addNewUser(newUser).subscribe((result)=>{
       this.message='Added Successfully'
-      console.log(result)
       })
       this.router.navigate(['/login']);
     }

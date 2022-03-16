@@ -8,7 +8,7 @@
     border: 1px solid lightgrey;
     width: 300px;
     font-family: 'Segoe UI';
-    height: 300px;
+    height: 350px;
     font-family: 'Segoe UI';
 }
 img{
@@ -47,4 +47,7 @@ img{
     border: 1px solid transparent;
     /* background: linear-gradient(#3a7bd5,#3a6073); */
     background-color: #3a7bd5;
+}
+.message{
+    min-height: 30px;
 }

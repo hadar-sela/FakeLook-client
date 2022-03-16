@@ -21,23 +21,33 @@ export class LoginComponent implements OnInit {
 
   login(){
     const newUser= {} as User;
-    newUser.username = this.username;
-    newUser.password = this.password;
-    console.log("You enter the username:");
-    console.log(this.username);
-    console.log("You enter the password:")
-    console.log(this.password);
-    this.LoginService.getUser(newUser).subscribe((result)=>{
-      console.log(result);
-      if(!result){
-        this.message = "Incorrect username or password";
-      }
-      else{
+    if(this.valid())
+    {
+      newUser.username = this.username;
+      newUser.password = this.password;
+      this.LoginService.getUser(newUser).subscribe((result)=>{
+      if(result){
         this.message = "";
+        this.router.navigate(['/home']);
       }
+    },(error)=>{
+     this.message = error.error.detail
+     
     })
+    }
   }
-
+  valid(){
+    let answer = true;
+    if(!this.username ){
+      this.message="Enter User Name"
+      answer = false;
+    }
+    else if(!this.password){
+      this.message="Enter password"
+      answer=false
+    }
+    return answer
+  }
   signUp(){
     this.router.navigate(['/register']);
   }
