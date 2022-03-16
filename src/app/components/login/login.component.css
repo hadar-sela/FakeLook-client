@@ -8,6 +8,8 @@
     border: 1px solid lightgrey;
     width: 300px;
     font-family: 'Segoe UI';
+    height: 300px;
+    font-family: 'Segoe UI';
 }
 img{
     width: 50;
@@ -16,7 +18,7 @@ img{
 .input input{
     padding: 10px;
     margin: 10px;
-    text-align: center;
+    /* text-align: center; */
     border: none;
     border-bottom: 1px solid lightgray;
     outline: none;
@@ -37,4 +39,12 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.loginbutton button{
+    width: 170px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    /* background: linear-gradient(#3a7bd5,#3a6073); */
+    background-color: #3a7bd5;
 }
