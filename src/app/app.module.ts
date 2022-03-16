@@ -7,20 +7,30 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { HomeComponent } from './components/home/home.component';
+import { MapComponent } from './components/map/map.component';
+import { AngularCesiumModule, AngularCesiumWidgetsModule } from 'angular-cesium';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddPostComponent,
+    HomeComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularCesiumModule.forRoot(),
+    AngularCesiumWidgetsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
