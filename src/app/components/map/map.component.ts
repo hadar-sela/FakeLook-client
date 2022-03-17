@@ -6,7 +6,9 @@ import {
   ActionType,
   CameraService,
 } from 'angular-cesium';
-import { Observable, of } from 'rxjs';
+import { map, mergeMap, Observable, of, tap } from 'rxjs';
+import { Post } from 'src/app/models/post';
+import { PostService } from 'src/app/services/post.service';
 const randomLocation = require('random-location');
 
 @Component({
@@ -16,7 +18,7 @@ const randomLocation = require('random-location');
   providers: [ViewerConfiguration],
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  constructor(private viewerConf: ViewerConfiguration) {
+  constructor(private viewerConf: ViewerConfiguration , private postService:PostService) {
     viewerConf.viewerOptions = {
       selectionIndicator: false,
       timeline: false,
@@ -31,14 +33,38 @@ export class MapComponent implements OnInit, AfterViewInit {
       useDefaultRenderLoop: true,
     };
   }
+  selectedPost!: Post;
+  showDialog = false;
+
   @ViewChild('map') map!: AcMapComponent;
-  entities$!: Observable<AcNotification>;
+  entities$!: Observable<any>;
   private camera!: CameraService;
   Cesium = Cesium;
   ngAfterViewInit(): void {
     this.camera = this.map.getCameraService();
   }
   ngOnInit(): void {
+    this.putPostsOnMap()
+  }
+  putPostsOnMap() {
+    this.entities$ = this.postService.getAllPosts().pipe(
+      map((posts) => {
+        return posts.map((post: Post) => ({
+          id: post.id,
+          actionType: ActionType.ADD_UPDATE,
+          entity: {
+            ...post,
+            location: {
+              x: post.x_Position,
+              y: post.y_Position,
+              z: post.z_Position
+            },
+          },
+        }));
+      }),
+      tap((posts) => console.log(posts)),
+      mergeMap((entity) => entity)
+    );
   }
   goHome(): void {
     navigator.geolocation.getCurrentPosition(
@@ -85,5 +111,9 @@ export class MapComponent implements OnInit, AfterViewInit {
         this.camera.zoomOut(zoom);
       },
     });
+  }
+  showFullPost(post: Post): void {
+    this.showDialog = true;
+    this.selectedPost = post;
   }
 }

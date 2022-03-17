@@ -1,6 +1,15 @@
-<div class="container">
-    <h3>Home</h3>
+<div class="main-container">
+    <div class="title-container">
+        <h3>Home</h3>
+    </div>
     <div class="button-add-post">
         <button (click)="addPost()">Add Post</button>
     </div>
+<div class="map-container">
+    <app-map></app-map>
 </div>
+</div>
+<div class="popup-container" *ngIf="addPostPopUp">
+    <app-add-post></app-add-post>
+</div>
+

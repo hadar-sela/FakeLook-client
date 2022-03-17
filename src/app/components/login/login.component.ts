@@ -17,6 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(private LoginService: LoginService, private readonly router: Router) { }
 
   ngOnInit(): void {
+    this.checkIfLogin();
+  }
+  checkIfLogin(){
+    if(localStorage.getItem("token")){
+      this.router.navigate(['/home']);
+    }
   }
 
   login(){
@@ -27,6 +33,7 @@ export class LoginComponent implements OnInit {
       newUser.password = this.password;
       this.LoginService.getUser(newUser).subscribe((result)=>{
       if(result){
+        localStorage.setItem("token",result.token);
         this.message = "";
         this.router.navigate(['/home']);
       }
