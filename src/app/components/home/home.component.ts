@@ -9,8 +9,10 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class HomeComponent implements OnInit {
   addPostPopUp: boolean;
+  mapActive :boolean
   constructor(private readonly router: Router ,private postService:PostService) {
     this.addPostPopUp=false;
+    this.mapActive=true
    }
   
   ngOnInit(): void {
@@ -28,7 +30,18 @@ export class HomeComponent implements OnInit {
   }
   addPost(){
     // this.router.navigate(['/add-post']);
+    // console.log("2")
     this.addPostPopUp=!this.addPostPopUp
   }
 
+  activeMap(selection:any){
+    console.log(selection)
+    if(selection.index==0)
+    this.mapActive=true
+    else 
+    this.mapActive =false
+  }
+
+
+  
 }

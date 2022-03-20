@@ -1,18 +1,57 @@
+<mat-toolbar>
+    <span>&nbsp;FakeLook</span>
+  </mat-toolbar>
+<div class="main-container">
 <div class="contain-register">
-    <h3>Register</h3>
+    <h2>Register <i class='bx bx-edit-alt'></i></h2>
     <div class="input">
-        <input type="text" placeholder="User Name" [(ngModel)]="username" (keyup)="resetMessage()">
+        <!-- <input type="text" placeholder="User Name" [(ngModel)]="username" (keyup)="resetMessage()">
         <input type="text" placeholder="First Name" [(ngModel)]="firstname" (keyup)="resetMessage()">
         <input type="text" placeholder="Last Name" [(ngModel)]="lastname" (keyup)="resetMessage()">
         <input type="password" placeholder="Password" [(ngModel)]="password" (keyup)="resetMessage()">
         <input type="text" placeholder="BirthDate" [(ngModel)]="birthdate" (keyup)="resetMessage()">
         <input type="text" placeholder="Address" [(ngModel)]="address" (keyup)="resetMessage()">
-        <input type="text" placeholder="Role" [(ngModel)]="role" (keyup)="resetMessage()">
+        <input type="text" placeholder="Role" [(ngModel)]="role" (keyup)="resetMessage()"> -->
+        <table class=".example-form" cellspacing="0"><tr>
+            <mat-form-field class="example-full-width">
+                <mat-label>User Name</mat-label>
+                <textarea matInput ="text" [(ngModel)]="userName" (keyup)="resetMessage()"></textarea>
+              </mat-form-field> &nbsp;
+              <mat-form-field class="example-full-width" >
+                <mat-label>First Name</mat-label>
+                <textarea matInput="text" [(ngModel)]="firstname" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Last Name</mat-label>
+                <textarea matInput="text" [(ngModel)]="lastname" (keyup)="resetMessage()"></textarea>
+              </mat-form-field> &nbsp;
+              <mat-form-field class="example-full-width" >
+                <mat-label>Password</mat-label>
+                <textarea matInput="text" [(ngModel)]="password" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>BirthDate</mat-label>
+                <textarea matInput="text" [(ngModel)]="birthdate" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>&nbsp;
+              <mat-form-field class="example-full-width" >
+                <mat-label>Address</mat-label>
+                <textarea matInput="text" [(ngModel)]="address" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Role</mat-label>
+                <textarea matInput="text" [(ngModel)]="role" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+          </tr></table>
     </div>
     <div class="button">
         <button (click)="submitUser()">Submit</button>
     </div>
+    <br>
     <div class="message">
         {{message}}
     </div>
+</div>
 </div>

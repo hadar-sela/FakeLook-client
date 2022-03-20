@@ -1,17 +1,24 @@
+<mat-toolbar>
+    <span>&nbsp;FakeLook</span>
+  </mat-toolbar>
 <div class="main-container">
     <div class="all">
         <div class="picture">
             <img src='../assets/images/22.png' alt="No Picture">
         </div>
-        <h3>Sign In</h3>
+        <h2>Sign In</h2>
         <div class="input">
-            <div class="input-user">
-                <input type="text" placeholder="Username" [(ngModel)]="username">
-            </div>
-            <div class="input-password">
-                <input type="password" placeholder="Password" [(ngModel)]="password">
-            </div>
-        </div>
+            <table class=".example-form" cellspacing="0"><tr>
+    <mat-form-field class="example-full-width">
+        <mat-label><i class='bx bx-user'></i> User Name</mat-label>
+        <textarea matInput ="text" [(ngModel)]="userName"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" >
+        <mat-label><i class='bx bxs-lock'></i> Password</mat-label>
+        <textarea matInput="password" [(ngModel)]="password"></textarea>
+      </mat-form-field>
+  </tr></table>
             <div class="loginbutton">
                 <button (click)="login()">Login</button>
             </div>
@@ -24,3 +31,5 @@
             </div>
         </div>
 </div>
+
+  

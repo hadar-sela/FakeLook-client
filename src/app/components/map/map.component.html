@@ -1,51 +1,6 @@
-<!-- <div class="menu">
-    <div class="display-center">
-      <h1>Menu</h1>
-    </div>
-    <div class="display-center">
-      <Button class="btn btn-home" (click)="goHome()">Go Home!</Button>
-    </div>
-    <div class="display-center">
-      <Button class="btn btn-random" (click)="goRandom()">Go Random!</Button>
-    </div>
-  </div>
-  <ac-map #map>
-    <ac-layer
-      *ngIf="entities$"
-      acFor="let entity of entities$"
-      [context]="this"
-      [debug]="true"
-    >
-    <ac-html-desc props="{position: entity.location, show: true}">
-      <ng-template let-entity>
-        <div class="map-post" (click)="showFullPost(entity)">
-          <div>
-            <img src="{{ entity.imageSorce }}" />
-          </div>
-          <div class="post-description">{{ entity.description }}</div>
-        </div>
-      </ng-template>
-    </ac-html-desc>
-       <ac-billboard-desc
-        props="{ position: entity.position,
-                              image : 'https://preview.ibb.co/cpDuwF/angular_cesium.png',
-                              scale: 0.05,
-                                                          }"
-        >>
-      </ac-billboard-desc> 
-     <ac-label-desc
-        props="{
-          position: entity.position,
-          text: entity.id,
-          pixelOffset : [-15,20] | pixelOffset
-        }"
-      >
-      </ac-label-desc>
-    </ac-layer>
-  </ac-map>
 
-   -->
-   <ac-map #map>
+ <div class="map-container">
+  <ac-map #map>
     <ac-layer
       *ngIf="entities$"
       acFor="let entity of entities$"
@@ -64,3 +19,6 @@
       </ac-html-desc>
     </ac-layer>
   </ac-map>
+
+ </div>
+   

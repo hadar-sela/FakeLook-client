@@ -1,37 +1,30 @@
-
-.main-container{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-around;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: Poppins;
+  color: black;
 }
-.map-container{
-    height: 80%;
-    width: 50%;
-}
-.popup-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+html, body {
     width: 100%;
     height: 100%;
-    left: 0;
-    top:0;
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.5);
+    }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
 }
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
+  }
 
-/* .container{
+.example-button-row button{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
 }
 .map-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
+  width: 100%;
+  height: 100%;
+}
