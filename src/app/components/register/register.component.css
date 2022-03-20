@@ -1,10 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: Poppins;
+  color: black;
+}
+/* .contain-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+.main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .contain-register{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 500px;
+    height: 500px;
+    background-color: #0000000A;
 }
-.input{
+
+/* .input{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +38,7 @@
     padding: 10px;
     margin: 10px;
     /* text-align: center; */
-    border: none;
+    /* border: none;
     border-bottom: 1px solid lightgray;
     outline: none;
     height: 5px;
@@ -23,4 +46,19 @@
     transition: 0.5s;
     background-color: transparent;
     color: black;
+} */ 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-form-field {
+    margin-right: 20px;
+  }
+  td {
+    padding-right: 8px;
+  }
+  .message{
+    min-height: 30px;
 }

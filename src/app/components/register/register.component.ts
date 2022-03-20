@@ -10,7 +10,7 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class RegisterComponent implements OnInit {
 
-  username!: string
+  userName!: string
   firstname!: string
   lastname!: string;
   password!: string;
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     this.message="";
     if(this.validateForm()){
       const newUser= {} as User;
-      newUser.username=this.username;
+      newUser.userName=this.userName;
       newUser.firstname=this.firstname;
       newUser.lastname=this.lastname;
       newUser.password=this.password;
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
   }
 validateForm() {
   let answer = true;
-  if(!this.username ){
+  if(!this.userName ){
     this.message="Enter username"
     answer = false;
   }

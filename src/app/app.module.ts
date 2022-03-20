@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -11,8 +11,17 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { AngularCesiumModule, AngularCesiumWidgetsModule } from 'angular-cesium';
-
-
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +29,8 @@ import { AngularCesiumModule, AngularCesiumWidgetsModule } from 'angular-cesium'
     RegisterComponent,
     AddPostComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +39,24 @@ import { AngularCesiumModule, AngularCesiumWidgetsModule } from 'angular-cesium'
     FormsModule,
     AppRoutingModule,
     AngularCesiumModule.forRoot(),
-    AngularCesiumWidgetsModule
+    AngularCesiumWidgetsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCardModule
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+}

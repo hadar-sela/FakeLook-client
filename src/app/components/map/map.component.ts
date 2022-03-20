@@ -44,6 +44,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.camera = this.map.getCameraService();
   }
   ngOnInit(): void {
+    console.log("map")
     this.putPostsOnMap()
   }
   putPostsOnMap() {

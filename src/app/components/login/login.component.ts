@@ -10,10 +10,12 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  username!: string;
+  userName!: string;
   password!: string;
   message: string ="";
-
+  value='Clear me';
+  hide = true;
+  
   constructor(private LoginService: LoginService, private readonly router: Router) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
     const newUser= {} as User;
     if(this.valid())
     {
-      newUser.username = this.username;
+      newUser.userName = this.userName;
       newUser.password = this.password;
       this.LoginService.getUser(newUser).subscribe((result)=>{
       if(result){
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
   valid(){
     let answer = true;
-    if(!this.username ){
+    if(!this.userName ){
       this.message="Enter User Name"
       answer = false;
     }

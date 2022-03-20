@@ -2,11 +2,11 @@
     <h3>Post</h3>
     <div class="input-container">
         <div class="post">
-            <input type="text" placeholder="Write Post" [(ngModel)]="post.Description">
-            <input type="text" placeholder="Image" [(ngModel)]="post.ImageSorce">
+            <input type="text" placeholder="Write Post" [(ngModel)]="post.description">
+            <input type="text" placeholder="Image" [(ngModel)]="post.imageSorce">
         </div>
     </div>
     <div class="button">
-        <button (click)="addpostdb()">Post</button>
+        <button (click)="addpostdb(true)">Post</button>
     </div>
 </div>

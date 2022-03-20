@@ -21,11 +21,11 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addpostdb()
+  addpostdb(answer: boolean)
   {
       const newPost= {} as Post;
-      newPost.Description=this.post.Description;
-      newPost.ImageSorce=this.post.ImageSorce;
+      newPost.description=this.post.description;
+      newPost.imageSorce=this.post.imageSorce;
         this.AddPostService.addNewPost(newPost).subscribe((result)=>{
         console.log(result)
         },(error)=>{
@@ -35,4 +35,5 @@ export class AddPostComponent implements OnInit {
           }
         })
   }
+ 
 }
