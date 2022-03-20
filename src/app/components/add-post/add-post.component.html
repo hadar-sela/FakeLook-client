@@ -1,12 +1,20 @@
 <div class="container-add-post">
-    <h3>Post</h3>
+    <h3>New Post</h3>
     <div class="input-container">
         <div class="post">
             <input type="text" placeholder="Write Post" [(ngModel)]="post.description">
-            <input type="text" placeholder="Image" [(ngModel)]="post.imageSorce">
+            <input
+          type="file"
+          accept="image/png, image/jpeg"
+          id="img"
+          #imgInput
+          (change)="showFilePreview($event)" />
         </div>
     </div>
     <div class="button">
         <button (click)="addpostdb(true)">Post</button>
+    </div>
+    <div class="message">
+        {{message}}
     </div>
 </div>

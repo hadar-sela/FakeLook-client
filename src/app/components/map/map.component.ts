@@ -9,6 +9,8 @@ import {
 import { map, mergeMap, Observable, of, tap } from 'rxjs';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
+import { RouterServiceService } from 'src/app/services/router-service.service';
+import { threadId } from 'worker_threads';
 const randomLocation = require('random-location');
 
 @Component({
@@ -18,7 +20,7 @@ const randomLocation = require('random-location');
   providers: [ViewerConfiguration],
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  constructor(private viewerConf: ViewerConfiguration , private postService:PostService) {
+  constructor(private viewerConf: ViewerConfiguration , private postService:PostService, private routerService: RouterServiceService) {
     viewerConf.viewerOptions = {
       selectionIndicator: false,
       timeline: false,
@@ -46,6 +48,11 @@ export class MapComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     console.log("map")
     this.putPostsOnMap()
+    this.routerService.postChange.subscribe((event)=>{
+      if(event){
+        this.putPostsOnMap();
+      }
+    })
   }
   putPostsOnMap() {
     this.entities$ = this.postService.getAllPosts().pipe(
