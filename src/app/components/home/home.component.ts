@@ -41,7 +41,9 @@ export class HomeComponent implements OnInit {
     else 
     this.mapActive =false
   }
-
-
+  LogOut(){
+    this.router.navigate(['/login']);
+    localStorage.clear();
+  }
   
 }

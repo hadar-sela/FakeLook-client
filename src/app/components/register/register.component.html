@@ -28,7 +28,8 @@
               </mat-form-field> &nbsp;
               <mat-form-field class="example-full-width" >
                 <mat-label>Password</mat-label>
-                <textarea matInput="text" [(ngModel)]="password" (keyup)="resetMessage()"></textarea>
+                <textarea type="password" matInput [(ngModel)]="password" (keyup)="resetMessage()"></textarea>
+            
               </mat-form-field>
               <br>
               <mat-form-field class="example-full-width" >

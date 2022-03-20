@@ -2,13 +2,13 @@
     <h3>New Post</h3>
     <div class="input-container">
         <div class="post">
+            <div class="input-text"></div>
             <input type="text" placeholder="Write Post" [(ngModel)]="post.description">
-            <input
-          type="file"
-          accept="image/png, image/jpeg"
-          id="img"
-          #imgInput
-          (change)="showFilePreview($event)" />
+            <input type="file"
+            accept="image/png, image/jpeg"
+            id="img"
+            #imgInput
+            (change)="showFilePreview($event)" />
         </div>
     </div>
     <div class="button">

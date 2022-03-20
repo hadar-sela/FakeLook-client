@@ -11,11 +11,11 @@
             <table class=".example-form" cellspacing="0"><tr>
     <mat-form-field class="example-full-width">
         <mat-label><i class='bx bx-user'></i> User Name</mat-label>
-        <textarea matInput ="text" [(ngModel)]="userName"></textarea>
+        <input matInput ="text" [(ngModel)]="userName">
       </mat-form-field>
       <mat-form-field class="example-full-width" >
         <mat-label><i class='bx bxs-lock'></i> Password</mat-label>
-        <textarea matInput="password" [(ngModel)]="password"></textarea>
+        <input type="password" matInput [(ngModel)]="password">
       </mat-form-field>
   </tr></table>
             <div class="loginbutton">
@@ -24,10 +24,10 @@
             <div class="message">
                 {{message}}
             </div>
-            <div class="signup-button">
-                Not yet a member?
-                <button (click)="signUp()">Sign Up</button>
-            </div>
+        </div>
+        <div class="signup-button">
+            Not yet a member?
+            <button (click)="signUp()">Sign Up</button>
         </div>
 </div>
 
