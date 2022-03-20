@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -49,6 +51,7 @@ import {MatCardModule} from '@angular/material/card';
     MatDatepickerModule,
     MatButtonModule,
     MatTabsModule,
+    MatDialogModule,
     MatCardModule
 
   ],

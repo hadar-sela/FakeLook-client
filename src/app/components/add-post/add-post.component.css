@@ -7,3 +7,9 @@
     width: 500px;
     height: 200px;
 }
+.message{
+    min-height: 30px;
+}
+.button button{
+    margin-top: 20px;
+}

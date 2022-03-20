@@ -1,26 +1,23 @@
 
-<mat-toolbar>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon><i class='bx bx-menu'></i></mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span>Edit user <i class='bx bx-edit-alt' ></i></span>
-        </button>
-        <button mat-menu-item>
-          <span>Log out <i class='bx bx-log-out-circle' ></i></span>
-        </button>
-      </mat-menu>
+<mat-toolbar class="toolbar-container">
 
-    <span>&nbsp;FakeLook &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    </span>
+
+      <div class="logo-container">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon><i class='bx bx-menu'></i></mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Edit user <i class='bx bx-edit-alt' ></i></span>
+          </button>
+          <button mat-menu-item>
+            <span>Log out <i class='bx bx-log-out-circle' ></i></span>
+          </button>
+        </mat-menu>
+        <span>FakeLook 
+        </span>
+
+      </div>
 
         <div class="example-button-row">
           <button (click)="addPost()"  mat-button color="primary" >Add Post</button>
@@ -28,18 +25,21 @@
 
   </mat-toolbar >
   <mat-tab-group mat-align-tabs="center" (selectedTabChange)="activeMap($event)">
-    <mat-tab  label="Map">
+    <mat-tab  label="Map" >
+      <app-map  *ngIf="mapActive"></app-map>
     </mat-tab>
     <mat-tab label="Timeline">
+      <app-timeline  *ngIf="!mapActive"></app-timeline>
+
     </mat-tab>
   
   </mat-tab-group>
-  <div *ngIf="mapActive" class="map-container">
+  <!-- <div *ngIf="mapActive" class="map-container">
     <app-map></app-map>
   </div>
   <div *ngIf="!mapActive" class="timeline-container">
     <app-timeline></app-timeline>
-  </div>
+  </div> -->
   <!-- <mat-tab-group mat-align-tabs="center">
     <mat-tab (click)="activeMap(true)"label="Map"><app-map *ngIf="mapActive"></app-map></mat-tab>
     <mat-tab (click)="activeMap(false)"label="Timeline"><app-timeline *ngIf="!mapActive"></app-timeline></mat-tab>

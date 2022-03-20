@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
+import { AddPostComponent } from '../add-post/add-post.component';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ import { PostService } from 'src/app/services/post.service';
 export class HomeComponent implements OnInit {
   addPostPopUp: boolean;
   mapActive :boolean
-  constructor(private readonly router: Router ,private postService:PostService) {
+  constructor(private readonly router: Router ,private postService:PostService,public dialog: MatDialog) {
     this.addPostPopUp=false;
     this.mapActive=true
    }
@@ -29,9 +31,7 @@ export class HomeComponent implements OnInit {
     })
   }
   addPost(){
-    // this.router.navigate(['/add-post']);
-    // console.log("2")
-    this.addPostPopUp=!this.addPostPopUp
+    this.dialog.open(AddPostComponent);
   }
 
   activeMap(selection:any){
