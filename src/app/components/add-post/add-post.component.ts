@@ -18,6 +18,10 @@ export class AddPostComponent implements OnInit {
   message: string ="";
   imgFile?: File;
   imgSrc=""
+  currXPos: number = 0;
+  currYPos: number = 0;
+  currZPos: number | null = 0;
+
   constructor(private AddPostService: AddPostService, private readonly router: Router,private dialog: MatDialog,private routerService: RouterServiceService) { 
 
   }
@@ -30,22 +34,34 @@ export class AddPostComponent implements OnInit {
       if(this.valid()){
         newPost.description=this.post.description;
         newPost.imageSorce=this.imgSrc;
-          this.AddPostService.addNewPost(newPost).subscribe((result)=>{
-            this.routerService.postChanged(true);
-         this.dialog.closeAll();
+       navigator.geolocation.watchPosition((data) => {
+     newPost.x_Position= data.coords.longitude;
+      newPost.y_Position = data.coords.latitude;
+    newPost.z_Position = 32.0852999;
+    //      newPost.x_Position= 4482945.578248642
+    //   newPost.y_Position = 2716974.1370438486
+    // newPost.z_Position = 3621257.192839344
+   
 
-          },(error)=>{
-            if(error.status==401){
-              this.router.navigate(['/login']);
-              localStorage.clear();
-              this.dialog.closeAll();
-            }
-            else{
-              this.message = error.error.detail
-            }
-          })
-      }
+      this.AddPostService.addNewPost(newPost).subscribe((result)=>{
+        this.routerService.postChanged(true);
+     this.dialog.closeAll();
+
+      },(error)=>{
+        if(error.status==401){
+          this.router.navigate(['/login']);
+          localStorage.clear();
+          this.dialog.closeAll();
+        }
+        else{
+          this.message = error.error.detail
+        }
+      })
+  
+       });
+         
   }
+}
   valid(){
     let answer = true;
     if(!this.post.description){

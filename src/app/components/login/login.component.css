@@ -25,18 +25,17 @@ img{
     width: 70;
     height: 70px;
 }
-.input input{
+/* .input input{
     padding: 10px;
     margin: 10px;
-    text-align: center;
     border: none;
-    border-bottom: 1px solid lightgray;
     outline: none;
+    
     height: 7px;
     font-family: 'Segoe UI';
     background-color: transparent;
     color: black;
-}
+} */
 
 .signup-button button{
     background-color: transparent;
@@ -68,7 +67,6 @@ img{
   .example-form {
     min-width: 250px;
     max-width: 700px;
-    width: 100%;
   }
   
   .example-full-width {
@@ -79,3 +77,6 @@ img{
     padding-right: 8px;
   }
   
+  .input{
+    width: 55%;
+  }
