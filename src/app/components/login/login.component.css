@@ -40,7 +40,10 @@ img{
 .signup-button button{
     background-color: transparent;
     border: 1px solid transparent;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #3a7bd5;
+    margin-top: 40px;
+    color: #3a7bd5;
+    cursor: pointer;
 }
 .loginbutton{
     display: flex;
@@ -51,11 +54,12 @@ img{
 .loginbutton button{
     width: 200px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     border: 1px solid transparent;
     /* background: linear-gradient(#3a7bd5,#3a6073); */
     background-color: #3a7bd5;
     height: 30px;
+    cursor: pointer;
 }
 .message{
     min-height: 30px;
@@ -79,4 +83,18 @@ img{
   
   .input{
     width: 55%;
+  }
+
+  .forgot-password button{
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #3a7bd5;
+    color: #3a7bd5;
+    cursor: pointer;
+  }
+  .forgot-password button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }

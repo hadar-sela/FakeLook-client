@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   postsUrl:"https://localhost:44349/api/Post",
-  usersUrl:"https://localhost:44349/api/User"
-
+  usersUrl:"https://localhost:44349/api/User",
+  likesURL:"https://localhost:44349/api/Like"
 };
 
 /*

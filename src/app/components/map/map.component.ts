@@ -62,11 +62,12 @@ export class MapComponent implements OnInit, AfterViewInit {
           actionType: ActionType.ADD_UPDATE,
           entity: {
             ...post,
-            location: {
-              x: post.x_Position,
-              y: post.y_Position,
-              z: post.z_Position
-            },
+            location: Cesium.Cartesian3.fromDegrees(
+              post.x_Position,
+              post.y_Position,
+              post.z_Position
+            ),
+            isShow: true,
           },
         }));
       }),
