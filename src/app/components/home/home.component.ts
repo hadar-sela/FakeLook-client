@@ -45,5 +45,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
     localStorage.clear();
   }
+
+  EditUser(){
+    //TO-DO 
+    //Token validation
+    this.router.navigate(['/edit-user']);
+  }
   
 }
