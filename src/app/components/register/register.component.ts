@@ -32,10 +32,10 @@ export class RegisterComponent implements OnInit {
     if(this.validateForm()){
       const newUser= {} as User;
       newUser.userName=this.userName;
-      newUser.firstname=this.firstname;
-      newUser.lastname=this.lastname;
+      newUser.firstName=this.firstname;
+      newUser.lastName=this.lastname;
       newUser.password=this.password;
-      newUser.birthdate=this.birthdate;
+      newUser.birthDate=this.birthdate;
       newUser.address=this.address;
       newUser.role=this.role;
       this.RegisterService.addNewUser(newUser).subscribe((result)=>{

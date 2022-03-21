@@ -24,7 +24,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
+
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+=======
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,11 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     HomeComponent,
     MapComponent,
     TimelineComponent,
+
     ForgotpasswordComponent
+=======
+    EditUserComponent
+
   ],
   imports: [
     BrowserModule,

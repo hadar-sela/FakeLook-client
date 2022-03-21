@@ -1,0 +1,55 @@
+<mat-toolbar>
+    <span>&nbsp;FakeLook</span>
+  </mat-toolbar>
+<div class="main-container">
+<div class="contain-register">
+    <h2>Edit user <i class='bx bx-edit-alt'></i></h2>
+    <div class="input">
+        <table class=".example-form" cellspacing="0"><tr>
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>User Name</mat-label>
+                <textarea matInput ="text" [(ngModel)]="userName" (keyup)="resetMessage()"></textarea>
+              </mat-form-field> &nbsp; -->
+              <mat-form-field class="example-full-width" >
+                <mat-label>First Name</mat-label>
+                <textarea matInput="text" [(ngModel)]="firstname" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Last Name</mat-label>
+                <textarea matInput="text" [(ngModel)]="lastname" (keyup)="resetMessage()"></textarea>
+              </mat-form-field> &nbsp;
+              <mat-form-field class="example-full-width" >
+                <mat-label>Password</mat-label>
+                <textarea type="password" matInput [(ngModel)]="password" (keyup)="resetMessage()"></textarea>
+            
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>BirthDate</mat-label>
+                <textarea matInput="text" [(ngModel)]="birthdate" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>&nbsp;
+              <mat-form-field class="example-full-width" >
+                <mat-label>Address</mat-label>
+                <textarea matInput="text" [(ngModel)]="address" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Role</mat-label>
+                <textarea matInput="text" [(ngModel)]="role" (keyup)="resetMessage()"></textarea>
+              </mat-form-field>
+          </tr></table>
+    </div>
+    <div class="button">
+        <button (click)="submitChanges()">Save changes</button>
+    </div>
+    <br>
+    <div class="message">
+        {{message}}
+    </div>
+    <div class="button">
+        <button (click)="cancelChanges()">Cancel</button>
+      </div>
+    <br>
+</div>
+</div>
