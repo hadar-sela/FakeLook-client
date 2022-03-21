@@ -24,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import {MatCardModule} from '@angular/material/card';
     AddPostComponent,
     HomeComponent,
     MapComponent,
-    TimelineComponent
+    TimelineComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
