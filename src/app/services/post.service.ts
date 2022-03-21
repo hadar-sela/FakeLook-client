@@ -17,7 +17,15 @@ export class PostService {
       Authorization: 'Bearer ' + localStorage.getItem('token'),
     });
     return this.http.get<Post[]>(environment.postsUrl,{headers})
-    // return this.http.get<Post[]>(environment.postsUrl)
+    
+  }
+  addLike(postId: number) {
+    var userID = localStorage.getItem('id');
+    return this.http.post<any>(`${environment.likesURL}`, {
+      postId: postId,
+      userID: userID,
+    });
+
   }
 
 }

@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
       this.LoginService.getUser(newUser).subscribe((result)=>{
       if(result){
         localStorage.setItem("token",result.token);
+        localStorage.setItem("id",result.id);
+        localStorage.setItem("username",result.userName);
         this.message = "";
         this.router.navigate(['/home']);
       }
@@ -59,5 +61,8 @@ export class LoginComponent implements OnInit {
   }
   signUp(){
     this.router.navigate(['/register']);
+  }
+  forgotPassword(){
+    this.router.navigate(['/forgotpassword']);
   }
 }

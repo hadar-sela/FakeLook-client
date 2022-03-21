@@ -12,24 +12,51 @@ import { RouterServiceService } from 'src/app/services/router-service.service';
 })
 export class TimelineComponent implements OnInit {
 
-  list! : Post[]
-  constructor(private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { }
+  list! : any[]
+  countLike: number[]
+  ispostlike: boolean[]
+
+  constructor(private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { 
+    this.countLike=[]
+    this.ispostlike=[]
+  }
 
   ngOnInit(): void {
-    console.log('here')
     this.routerService.postChange.subscribe((event)=>{
       if(event){
         this.initList();
+        this.initlikepostnumber();
+        this.initLikedPost();
+        
       }
     })
 
     this.initList();
   }
+  initLikedPost() {
+    var currId = localStorage.getItem('id');
+    for (var i = 0; i < this.list.length; i++) {
+      for (var j = 0; j < this.list[i].likes.length; j++) {
+        if (
+          this.list[i].likes[j].user.id == currId &&
+          this.list[i].likes[j].isActive
+        ) {
+          this.ispostlike[i] = true;
+        } else {
+          this.ispostlike[i] = false;
+        }
+      }
+    } 
+    console.log(this.ispostlike)
+  }
   initList() {
-    console.log('here')
     this.postService.getAllPosts().subscribe((result)=>{
       console.log(result);
       this.list=result;
+      this.initlikepostnumber();
+      this.initLikedPost();
+
+
     },(error)=>{
       if(error.status==401){
         this.router.navigate(['/login']);
@@ -37,5 +64,35 @@ export class TimelineComponent implements OnInit {
       }
     })
 }
+initlikepostnumber(){
+  for(var i=0; i<this.list.length; i++)
+  {
+    var postlike=0;
+    for(var j=0; j<this.list[i].likes.length; j++){
+      if(this.list[i].likes[j].isActive){
+        postlike++;
+      }
+    }
+    this.countLike[i]=postlike
+  }
+}
+addLike(id:number){
+  this.postService.addLike(id).subscribe((result)=>{
+    console.log(result)
+  })
+}
+// addLike(id:number){
+//   this.postService.addLike(id).subscribe((result)=>{
+//     console.log(result)
+//     for(var i=0; i<this.list.length; i++){
+//       if(this.list[i].id==result.id){
+//         console.log(this.list[i])
+//         if(result.isActive){
+//           this.countLike[i]++;
+//         }
+//       }
+//     }
+//   })
+// }
 }
   
