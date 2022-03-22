@@ -15,7 +15,6 @@ export class AddPostService {
   addNewPost(post: Post): Observable<Post>
   {
     
-     
     let httpOptions ={
       headers: new HttpHeaders({'Content-Type':'application/json','Authorization' : 'Bearer ' + localStorage.getItem('token'),
     })
