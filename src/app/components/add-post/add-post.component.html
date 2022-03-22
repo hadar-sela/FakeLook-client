@@ -1,3 +1,7 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
 <div class="container-add-post">
     <h3>New Post</h3>
     <div class="input-container">
@@ -10,6 +14,64 @@
             #imgInput
             (change)="showFilePreview($event)" />
         </div>
+
+        <div>
+
+            <!-- TRY add tag -->
+            <br>
+            <mat-form-field class="example-t-chip-list" appearance="fill">
+                <mat-label>Add Tags</mat-label>
+                <mat-chip-list #chipListT aria-label="Tags selection">
+                  <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+                    #{{tag.content}}
+                    <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input placeholder="New tag..."
+                         [matChipInputFor]="chipListT"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+              </mat-form-field>
+            <!-- TRY add tag -->
+        </div>
+
+        <div>
+            <!-- TRY tag user -->
+            <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Tag friends</mat-label>
+            <mat-chip-list #chipList aria-label="Friend selection">
+                <mat-chip
+                *ngFor="let user of userTagged"
+                (removed)="removeUser(user)">
+                @{{user}}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+                </mat-chip>
+                <input
+                placeholder="New friend tag..."
+
+                [formControl]="userCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addUser($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+                {{user}}
+                </mat-option>
+            </mat-autocomplete>
+            </mat-form-field>
+            <!-- TRY tag user -->
+        </div>
+
+
+
+
     </div>
     <div class="button">
         <button (click)="addpostdb(true)">Post</button>

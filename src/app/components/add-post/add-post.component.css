@@ -10,13 +10,20 @@
     align-items: center;
     background-color: white;
     width: 500px;
-    height: 200px;
+    height: 400px;
 }
 .message{
     min-height: 30px;
 }
 .button button{
     margin-top: 20px;
+}
+.example-chip-list {
+    width: 100%;
+}
+
+.example-t-chip-list {
+width: 100%;
 }
 
 

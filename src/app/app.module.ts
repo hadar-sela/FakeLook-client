@@ -1,4 +1,4 @@
-import { NgModule, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -19,14 +19,21 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
 
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatSelectModule} from '@angular/material/select';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+
+import {MatChipsModule} from '@angular/material/chips';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule} from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -37,7 +44,6 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     HomeComponent,
     MapComponent,
     TimelineComponent,
-
     ForgotpasswordComponent,
     EditUserComponent
 
@@ -47,6 +53,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularCesiumModule.forRoot(),
     AngularCesiumWidgetsModule,
@@ -60,11 +67,17 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     MatButtonModule,
     MatTabsModule,
     MatDialogModule,
-    MatCardModule
-
+    MatCardModule,
+    MatChipsModule,
+    MatSelectModule,
+    CommonModule, 
+    MatDialogModule,
+    MatAutocompleteModule
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule implements OnInit {
   ngOnInit(): void {
