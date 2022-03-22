@@ -7,7 +7,6 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { MapComponent } from './components/map/map.component';
 
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-=======
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 // const routes: Routes = [
@@ -20,8 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'add-post', component: AddPostComponent},
 
-  { path: 'forgotpassword', component: ForgotpasswordComponent}
-=======
+  { path: 'forgotpassword', component: ForgotpasswordComponent},
   { path: 'edit-user', component: EditUserComponent}
 
 ];

@@ -26,7 +26,6 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
 
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-=======
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
@@ -39,8 +38,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     MapComponent,
     TimelineComponent,
 
-    ForgotpasswordComponent
-=======
+    ForgotpasswordComponent,
     EditUserComponent
 
   ],

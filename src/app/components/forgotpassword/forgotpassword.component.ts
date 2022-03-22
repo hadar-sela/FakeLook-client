@@ -26,7 +26,7 @@ export class ForgotpasswordComponent implements OnInit {
     if(this.valid())
     {
      newUser.userName=this.userName;
-     newUser.birthdate=this.birthdate;
+     newUser.birthDate=this.birthdate;
      this.forgotpasswordService.getUserbirth(newUser).subscribe((result)=>{
       this.message =  "Your password is: " + result.password;
       //this.router.navigate(['/login']);
