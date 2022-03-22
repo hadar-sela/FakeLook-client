@@ -72,15 +72,12 @@ import { ReactiveFormsModule} from '@angular/forms'
     MatTabsModule,
     MatDialogModule,
     MatCardModule,
-
     MatSnackBarModule,
-
     MatChipsModule,
     MatSelectModule,
     CommonModule, 
     MatDialogModule,
     MatAutocompleteModule
-
   ],
 
   providers: [],
