@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 import { RouterServiceService } from 'src/app/services/router-service.service';
@@ -15,10 +17,16 @@ export class TimelineComponent implements OnInit {
   list! : any[]
   countLike: number[]
   ispostlike: boolean[]
+  listcomment!: any[]
+  arraycomment!: any[]
+  newpost!: string
+  showComments:boolean[]=[]
+  shownewComments:boolean[]=[]
 
-  constructor(private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { 
+  constructor(private _snackBar: MatSnackBar,private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { 
     this.countLike=[]
     this.ispostlike=[]
+   
   }
 
   ngOnInit(): void {
@@ -27,27 +35,31 @@ export class TimelineComponent implements OnInit {
         this.initList();
         this.initlikepostnumber();
         this.initLikedPost();
-        
+   
       }
     })
-
     this.initList();
+    // for 0 -> list.length
+    // comment. (list[i].comment)
   }
+
+
   initLikedPost() {
     var currId = localStorage.getItem('id');
     for (var i = 0; i < this.list.length; i++) {
+      this.ispostlike[i] = false;
+      this.showComments[i]=false
+      this.shownewComments[i]=false;
       for (var j = 0; j < this.list[i].likes.length; j++) {
         if (
           this.list[i].likes[j].user.id == currId &&
           this.list[i].likes[j].isActive
         ) {
           this.ispostlike[i] = true;
-        } else {
-          this.ispostlike[i] = false;
-        }
+        } 
       }
     } 
-    console.log(this.ispostlike)
+
   }
   initList() {
     this.postService.getAllPosts().subscribe((result)=>{
@@ -55,7 +67,6 @@ export class TimelineComponent implements OnInit {
       this.list=result;
       this.initlikepostnumber();
       this.initLikedPost();
-
 
     },(error)=>{
       if(error.status==401){
@@ -76,23 +87,44 @@ initlikepostnumber(){
     this.countLike[i]=postlike
   }
 }
+
 addLike(id:number){
   this.postService.addLike(id).subscribe((result)=>{
     console.log(result)
+    for(var i=0; i<this.list.length; i++){
+      if(this.list[i].id==result.postId){
+        if(result.isActive){
+          this.countLike[i] =  this.countLike[i]+1;
+          this.ispostlike[i] = true;
+        }
+        else{
+          this.countLike[i] =  this.countLike[i]-1;
+          this.ispostlike[i] = false;
+        }
+      }
+  
+    }
   })
 }
-// addLike(id:number){
-//   this.postService.addLike(id).subscribe((result)=>{
-//     console.log(result)
-//     for(var i=0; i<this.list.length; i++){
-//       if(this.list[i].id==result.id){
-//         console.log(this.list[i])
-//         if(result.isActive){
-//           this.countLike[i]++;
-//         }
-//       }
-//     }
-//   })
-// }
+
+getcomment(id: number){
+
+  this.showComments[id]=!this.showComments[id]
+  
+}
+writePost(id: number){
+this.shownewComments[id]=!this.shownewComments[id]
+}
+addComment(id: number){
+  this.postService.addcomment(id,this.newpost).subscribe((result)=>{
+    console.log(result)
+    this._snackBar.open("comment published","Dismiss",{
+      duration:3000
+    
+    });
+    this.initList();
+    this.newpost=""
+  })
+}
 }
   

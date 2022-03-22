@@ -24,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
@@ -60,7 +61,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     MatButtonModule,
     MatTabsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
 
   ],
   providers: [],

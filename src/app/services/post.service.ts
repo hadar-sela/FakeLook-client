@@ -25,7 +25,16 @@ export class PostService {
       postId: postId,
       userID: userID,
     });
-
+  }
+  addcomment(postId: number, newpost:string) {
+    var userID = localStorage.getItem('id');
+    return this.http.post<any>(`${environment.commentURL}`, {
+      postId: postId,
+      userID: userID,
+      content: newpost
+    });
   }
 
 }
+
+
