@@ -9,5 +9,6 @@ export interface Post{
     z_Position: number;
     Date: string;
     UserId: number;
-    user:User
+    user:User;
+    tags?:any[];
 }

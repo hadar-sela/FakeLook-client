@@ -9,14 +9,23 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+
     width: 800px;
     height: 300px;
+
 }
 .message{
     min-height: 30px;
 }
 .button button{
     margin-top: 20px;
+}
+.example-chip-list {
+    width: 100%;
+}
+
+.example-t-chip-list {
+width: 100%;
 }
 
 
