@@ -1,5 +1,6 @@
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { User } from 'src/app/models/user';
@@ -16,7 +17,7 @@ export class ForgotpasswordComponent implements OnInit {
   message: string ="";
 
 
-  constructor(private forgotpasswordService:ForgotpasswordService,private readonly router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private forgotpasswordService:ForgotpasswordService,private readonly router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +29,10 @@ export class ForgotpasswordComponent implements OnInit {
      newUser.userName=this.userName;
      newUser.birthDate=this.birthdate;
      this.forgotpasswordService.getUserbirth(newUser).subscribe((result)=>{
-      this.message =  "Your password is: " + result.password;
+      this._snackBar.open("Your password is: " +result.password,"Dismiss",{
+        duration:3000
+      
+      });
       //this.router.navigate(['/login']);
     },(error)=>{
      this.message = error.error.detail
