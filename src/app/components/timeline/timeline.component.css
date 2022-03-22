@@ -6,10 +6,6 @@
     max-width: 400px;
   }
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
   .container-posts{
       display: flex;
       flex-direction: column;
@@ -24,4 +20,16 @@
   .example-card{
     margin-top: 20px;
     margin-bottom: 10px;
+    border-radius: 10px;
+    font-family: Poppins;
+  }
+  .button-comment button{
+    background-color: white;
+    border: none;
+    color: blue;
+  }
+  .buttonaddcomment button{
+    background-color: white;
+    border: none;
+    color: blue;
   }
