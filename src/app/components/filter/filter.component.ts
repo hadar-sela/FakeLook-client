@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { Filter } from 'src/app/models/filter';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { FilterService } from 'src/app/services/filter.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { User } from 'src/app/models/user';
+import { RouterServiceService } from 'src/app/services/router-service.service';
+import { Post } from 'src/app/models/post';
 
 export interface Tag {
   content: string;
@@ -13,31 +19,39 @@ export interface Tag {
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-
-  publisher!: string[];
-  startDate!: string;
-  endDate!: string;
-  usersTags!: string[];
-
   filter!: Filter
-
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   tags: any[] = [];
+  publisher: User[]=[];
+  
 
+  startDate!: Date;
+  endDate!: Date;
+  usersTags: string[]=[];
 
-  constructor() { }
+  constructor( private filterService: FilterService,private readonly router: Router,private dialog: MatDialog,private routerService: RouterServiceService) { }
 
   ngOnInit(): void {
   }
   addfilter(){
     const newFilter= {} as Filter;
-    newFilter.publisher=this.publisher
+    newFilter.publishers=[];
+
+    newFilter.publishers.push({userName : "galit" } as User)
+    
+    //newFilter.publisher=this.publisher 
     newFilter.startDate=this.startDate
     newFilter.endDate=this.endDate
     newFilter.tags=this.tags
     newFilter.usersTags=this.usersTags
     console.log(newFilter)
+    this.filterService.addNewFilter(newFilter).subscribe((result)=>{
+      console.log(result);
+      this.routerService.filteChanged(result)
+      this.dialog.closeAll();
+    
+    })
     
   }
 
