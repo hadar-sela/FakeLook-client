@@ -3,34 +3,18 @@
   font-family: Poppins;
   color: black;
 }
-.container-add-post{
+.container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content:space-between
+}
+.container-filter{
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-
-    width: 600px;
-    height: 350px;
+    flex-direction: column;
+    width: 400px;
+    height: 550px;
 
 }
-.example-full-width {
-    width: 100%;
-  }
-.message{
-    min-height: 30px;
-}
-.button button{
-    margin-top: 20px;
-}
-.example-chip-list {
-    width: 100%;
-}
-
-.example-t-chip-list {
-width: 100%;
-}
-
-
-
-

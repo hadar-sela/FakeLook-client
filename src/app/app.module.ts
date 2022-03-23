@@ -30,7 +30,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule} from '@angular/forms'
+import { ReactiveFormsModule} from '@angular/forms';
+import { FilterComponent } from './components/filter/filter.component'
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ReactiveFormsModule} from '@angular/forms'
     MapComponent,
     TimelineComponent,
     ForgotpasswordComponent,
-    EditUserComponent
+    EditUserComponent,
+    FilterComponent
 
   ],
   imports: [

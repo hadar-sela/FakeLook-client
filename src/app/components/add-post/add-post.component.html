@@ -3,23 +3,23 @@
 </head>
 
 <div class="container-add-post">
-    <h3>New Post</h3>
+    <h3>New Post <i class='bx bx-edit-alt'></i></h3>
     <div class="input-container">
         <div class="post">
-            <div class="input-text"></div>
-            <input type="text" placeholder="Write Post" [(ngModel)]="post.description">
-            <input type="file"
-            accept="image/png, image/jpeg"
-            id="img"
-            #imgInput
-            (change)="showFilePreview($event)" />
+            <mat-form-field class="example-full-width">
+                <mat-label>Write post</mat-label>
+                <input matInput ="text" [(ngModel)]="post.description">
+              </mat-form-field>
+              <div class="input-text"></div>
+            <!-- <input type="text" placeholder="Write Post" [(ngModel)]="post.description"> -->
+            <input type="file" accept="image/png, image/jpeg"id="img" #imgInput (change)="showFilePreview($event)" />
         </div>
 
         <div>
 
             <!-- TRY add tag -->
             <br>
-            <mat-form-field class="example-t-chip-list" appearance="fill">
+            <mat-form-field class="example-t-chip-list">
                 <mat-label>Add Tags</mat-label>
                 <mat-chip-list #chipListT aria-label="Tags selection">
                   <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
@@ -40,7 +40,7 @@
 
         <div>
             <!-- TRY tag user -->
-            <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-form-field class="example-chip-list">
             <mat-label>Tag friends</mat-label>
             <mat-chip-list #chipList aria-label="Friend selection">
                 <mat-chip
@@ -74,7 +74,8 @@
 
     </div>
     <div class="button">
-        <button (click)="addpostdb(true)">Post</button>
+        <!-- <button (click)="addpostdb(true)">Post</button> -->
+        <button (click)="addpostdb(true)" mat-flat-button color="primary">Post</button>
     </div>
     <div class="message">
         {{message}}

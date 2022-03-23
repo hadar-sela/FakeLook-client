@@ -1,0 +1,54 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<div class="container-filter">
+    <h3>Filter <i class='bx bxs-hourglass-top'></i></h3>
+    <table class="example-full-width" cellspacing="0"><tr>
+        <div class="container">
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Publisher <i class='bx bx-male'></i></mat-label>
+          <input matInput [(ngModel)]="publisher">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Start date <i class='bx bxs-calendar'></i></mat-label>
+          <input matInput [(ngModel)]="startDate">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>End date <i class='bx bxs-calendar'></i></mat-label>
+            <input matInput [(ngModel)]="endDate">
+          </mat-form-field></td>
+
+            <!-- TRY add tag -->
+            <mat-form-field class="example-t-chip-list" appearance="fill">
+                <mat-label>Tags <i class='bx bxs-purchase-tag'></i></mat-label>
+                <mat-chip-list #chipListT aria-label="Tags selection">
+                  <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+                    #{{tag.content}}
+                    <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input placeholder="New tag..."
+                         [matChipInputFor]="chipListT"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+              </mat-form-field>
+            <!-- TRY add tag -->
+
+
+          <!-- <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Tags <i class='bx bxs-purchase-tag'></i></mat-label>
+            <input matInput [(ngModel)]="tags">
+          </mat-form-field></td> -->
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Users tags <i class='bx bxs-purchase-tag'></i></mat-label>
+            <input matInput [(ngModel)]="usersTags">
+          </mat-form-field></td>
+          <button (click)="addfilter()" mat-flat-button color="primary">Search</button>
+        </div>
+      </tr></table>
+      
+</div>

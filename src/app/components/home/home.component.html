@@ -4,12 +4,17 @@
           <mat-icon><i class='bx bx-menu'></i></mat-icon>
         </button>
         <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="filter()">
+            <span>Filter<i class='bx bxs-hourglass-top'></i></span>
+          </button>
           <button mat-menu-item (click)="EditUser()">
-            <span>Edit user <i class='bx bx-edit-alt' ></i></span>
+            <span>Edit user<i class='bx bx-edit-alt' ></i></span>
           </button>
+          <div class="logoutbutton">
           <button mat-menu-item (click)="LogOut()">
-            <span>Log out <i class='bx bx-log-out-circle' ></i></span>
+            <span>Log out<i class='bx bx-log-out-circle' ></i></span>
           </button>
+        </div>
         </mat-menu>
         <span>FakeLook 
         </span>
@@ -19,6 +24,7 @@
         <div class="example-button-row">
           <button (click)="addPost()"  mat-button color="primary" >Add Post</button>
         </div>
+        
 
   </mat-toolbar >
   <mat-tab-group mat-align-tabs="center" (selectedTabChange)="activeMap($event)">
