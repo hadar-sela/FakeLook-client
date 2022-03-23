@@ -30,17 +30,23 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.filterListener()
     this.routerService.postChange.subscribe((event)=>{
       if(event){
         this.initList();
         this.initlikepostnumber();
         this.initLikedPost();
-   
+
       }
     })
     this.initList();
     // for 0 -> list.length
     // comment. (list[i].comment)
+  }
+  filterListener() {
+    this.routerService.filterChange.subscribe((event)=>{
+      this.list=event
+    })
   }
 
 
@@ -67,7 +73,9 @@ export class TimelineComponent implements OnInit {
       this.list=result;
       this.initlikepostnumber();
       this.initLikedPost();
-
+      this.list.reverse();
+      this.ispostlike.reverse();
+      this.countLike.reverse();
     },(error)=>{
       if(error.status==401){
         this.router.navigate(['/login']);

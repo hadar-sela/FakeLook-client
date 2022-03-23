@@ -7,7 +7,8 @@ export const environment = {
   postsUrl:"https://localhost:44349/api/Post",
   usersUrl:"https://localhost:44349/api/User",
   likesURL:"https://localhost:44349/api/Like",
-  commentURL:"https://localhost:44349/api/Comment"
+  commentURL:"https://localhost:44349/api/Comment",
+  filterURL:"https://localhost:44349/api/Post/GetAll"
 };
 
 /*

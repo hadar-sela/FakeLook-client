@@ -18,7 +18,18 @@
             <mat-label>End date <i class='bx bxs-calendar'></i></mat-label>
             <input matInput [(ngModel)]="endDate">
           </mat-form-field></td>
-
+          <!-- <mat-form-field appearance="legacy">
+            <mat-label>Starting Date</mat-label>
+            <input matInput [matDatepicker]="picker1" [(ngModel)]="startDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="legacy">
+            <mat-label>Ending Date</mat-label>
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field> -->
             <!-- TRY add tag -->
             <mat-form-field class="example-t-chip-list" appearance="fill">
                 <mat-label>Tags <i class='bx bxs-purchase-tag'></i></mat-label>
@@ -29,7 +40,7 @@
                       <mat-icon>cancel</mat-icon>
                     </button>
                   </mat-chip>
-                  <input placeholder="New tag..."
+                  <input 
                          [matChipInputFor]="chipListT"
                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                          [matChipInputAddOnBlur]="addOnBlur"
