@@ -12,11 +12,15 @@ import { Observable } from 'rxjs';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {map, startWith} from 'rxjs/operators';
 
-//Try
+
 export interface Tag {
   content: string;
 }
-//Try
+
+export interface UserTag {
+  userId: number;
+}
+
 
 @Component({
   selector: 'app-add-post',
@@ -37,8 +41,11 @@ export class AddPostComponent implements OnInit {
   //Try
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  //users: UserTag[] = [];
+  usersFromDB: User[] = [];
   userNames: string[] = [];
   userTagged: string[] = [];
+  userTaggedToDB: UserTag[] = [];
   tags: any[] = [];
   userCtrl = new FormControl();
   filteredUsers: Observable<string[]>;
@@ -72,7 +79,8 @@ export class AddPostComponent implements OnInit {
           // newPost.z_Position = 3621257.192839344
           //AddPost()
         });
-        newPost.tags = this.tags;        
+        newPost.tags = this.tags; 
+        newPost.userTaggedPost = this.userTaggedToDB;       
 
       this.AddPostService.addNewPost(newPost).subscribe((result)=>{
         this.routerService.postChanged(true);
@@ -90,7 +98,6 @@ export class AddPostComponent implements OnInit {
         }
       })   
   }
-  console.log(this.tags);
 }
   valid(){
     let answer = true;
@@ -124,6 +131,10 @@ export class AddPostComponent implements OnInit {
     this.AddPostService.getUsers().subscribe((result)=>{
       for (let index = 0; index < result.length; index++) {
         this.userNames.push(result[index].userName);
+        var user = {} as User;
+        user.userName = result[index].userName;
+        user.id = result[index].id;
+        this.usersFromDB.push(user);
       }
     })
   }
@@ -156,28 +167,44 @@ export class AddPostComponent implements OnInit {
   //TryTagUsers
   addUser(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-
     // Add our fruit
     if (value) {
-      this.userTagged.push(value);
+      // for (let i = 0; i < this.userNames.length; i++) {
+      //   if(value==this.userNames[i]){
+      //     this.userTagged.push(value);
+      //   }       
+      // }
+      for (let i = 0; i < this.usersFromDB.length; i++) {
+        if(value==this.usersFromDB[i].userName){
+          this.userTagged.push(value);
+           var userTag = {} as UserTag;
+           userTag.userId = this.usersFromDB[i].id;
+           this.userTaggedToDB.push(userTag);
+        }       
+      }
     }
-
     // Clear the input value
     event.chipInput!.clear();
-
     this.userCtrl.setValue(null);
   }
 
   removeUser(user: string): void {
     const index = this.userTagged.indexOf(user);
-
     if (index >= 0) {
       this.userTagged.splice(index, 1);
+      this.userTaggedToDB.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.userTagged.push(event.option.viewValue);
+    for (let i = 0; i < this.usersFromDB.length; i++) {
+      if(event.option.viewValue==this.usersFromDB[i].userName){
+         var userTag = {} as UserTag;
+         userTag.userId = this.usersFromDB[i].id;
+         this.userTaggedToDB.push(userTag);
+      }       
+    }
     //this.userInput.nativeElement.value = '';
     this.userCtrl.setValue(null);
   }

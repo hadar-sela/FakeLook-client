@@ -11,4 +11,5 @@ export interface Post{
     UserId: number;
     user:User;
     tags?:any[];
+    userTaggedPost?:any;
 }
