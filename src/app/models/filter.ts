@@ -1,7 +1,10 @@
+
+import { User } from "./user";
+
 export interface Filter{
-    publisher: string[];
-    startDate: string;
-    endDate: string;
+    publishers: User[];
+    startDate: Date;
+    endDate: Date;
     tags?: any[];
     usersTags: any[];
 }
