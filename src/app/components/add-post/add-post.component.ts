@@ -37,7 +37,6 @@ export class AddPostComponent implements OnInit {
   //Try
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  //fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
   userNames: string[] = [];
   userTagged: string[] = [];
   tags: any[] = [];

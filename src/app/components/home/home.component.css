@@ -41,3 +41,7 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+.logoutbutton :hover{
+  /* background-color: red; */
+  color: red;
+}

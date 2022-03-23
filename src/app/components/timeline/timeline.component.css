@@ -33,3 +33,14 @@
     border: none;
     color: blue;
   }
+  .example-full-width {
+    width: 100%;
+  }
+.all{
+  display: flex;
+  flex-direction: row;
+}
+.class{
+  display: flex;
+  justify-content: space-between;
+}

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { AddPostComponent } from '../add-post/add-post.component';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +34,9 @@ export class HomeComponent implements OnInit {
   addPost(){
     this.dialog.open(AddPostComponent);
   }
+  filter(){
+    this.dialog.open(FilterComponent);
+  }
 
   activeMap(selection:any){
     console.log(selection)
@@ -51,5 +55,6 @@ export class HomeComponent implements OnInit {
     //Token validation
     this.router.navigate(['/edit-user']);
   }
+  
   
 }
