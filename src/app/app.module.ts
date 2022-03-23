@@ -18,21 +18,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
-
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import {MatCardModule} from '@angular/material/card';
-
-import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatSelectModule} from '@angular/material/select';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
-
 import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule} from '@angular/forms'
@@ -71,15 +66,14 @@ import { ReactiveFormsModule} from '@angular/forms'
     MatTabsModule,
     MatDialogModule,
     MatCardModule,
-
+    MatSnackBarModule,
     MatChipsModule,
     MatSelectModule,
     CommonModule, 
     MatDialogModule,
     MatAutocompleteModule,
-
+    MatAutocompleteModule,
     MatSnackBarModule
-
   ],
 
   providers: [],

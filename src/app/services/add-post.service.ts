@@ -13,7 +13,8 @@ export class AddPostService {
   constructor(private http:HttpClient) { }
 
   addNewPost(post: Post): Observable<Post>
-  { 
+  {
+    
     let httpOptions ={
       headers: new HttpHeaders({'Content-Type':'application/json','Authorization' : 'Bearer ' + localStorage.getItem('token'),
     })
@@ -22,6 +23,7 @@ export class AddPostService {
   }
 
   getUsers():Observable<User[]>{
+
     return this.http.get<User[]>(environment.usersUrl);
   }  
 }
