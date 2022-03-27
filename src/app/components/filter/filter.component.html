@@ -6,10 +6,40 @@
     <h3>Filter <i class='bx bxs-hourglass-top'></i></h3>
     <table class="example-full-width" cellspacing="0"><tr>
         <div class="container">
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <!-- <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Publisher <i class='bx bx-male'></i></mat-label>
           <input matInput [(ngModel)]="publisher">
-        </mat-form-field></td>
+        </mat-form-field></td> -->
+
+            <!-- TRY tag user -->
+            <mat-form-field class="example-chip-list" appearance="fill">
+              <mat-label>Publisher</mat-label>
+              <mat-chip-list #chipList aria-label="Friend selection">
+                  <mat-chip
+                  *ngFor="let user of userTagged"
+                  (removed)="removeUser(user)">
+                  @{{user}}
+                  <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                  </button>
+                  </mat-chip>
+                  <input
+                  
+  
+                  [formControl]="userCtrl"
+                  [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="addUser($event)">
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+                  {{user}}
+                  </mat-option>
+              </mat-autocomplete>
+              </mat-form-field>
+              <!-- TRY tag user -->
+
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Start date <i class='bx bxs-calendar'></i></mat-label>
           <input matInput [(ngModel)]="startDate">

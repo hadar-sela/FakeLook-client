@@ -39,10 +39,8 @@ export class AddPostComponent implements OnInit {
   currZPos: number | null = 0;
 
 
-  //Try
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  //users: UserTag[] = [];
   usersFromDB: User[] = [];
   userNames: string[] = [];
   userTagged: string[] = [];
@@ -50,9 +48,6 @@ export class AddPostComponent implements OnInit {
   tags: any[] = [];
   userCtrl = new FormControl();
   filteredUsers: Observable<string[]>;
-
-  //@ViewChild('userInput') userInput: ElementRef<HTMLInputElement>;
-  //Try
 
   constructor(private AddPostService: AddPostService, private readonly router: Router,private dialog: MatDialog,private routerService: RouterServiceService) { 
     this.filteredUsers = this.userCtrl.valueChanges.pipe(
@@ -71,15 +66,14 @@ export class AddPostComponent implements OnInit {
       if(this.valid()){
         newPost.description=this.post.description;
         newPost.imageSorce=this.imgSrc;
-        navigator.geolocation.watchPosition((data) => {
-          newPost.x_Position= data.coords.longitude;
-          newPost.y_Position = data.coords.latitude;
-          newPost.z_Position = 32.0852999;
-          //      newPost.x_Position= 4482945.578248642
-          //   newPost.y_Position = 2716974.1370438486
-          // newPost.z_Position = 3621257.192839344
-          //AddPost()
-        });
+        // navigator.geolocation.watchPosition((data) => {
+        //   newPost.x_Position= data.coords.longitude;
+        //   newPost.y_Position = data.coords.latitude;
+        //   newPost.z_Position = 32.0852999;
+        // });
+        newPost.x_Position= 31.0461;
+        newPost.y_Position = 34.8516;
+        newPost.z_Position = 32;
         newPost.tags = this.tags; 
         newPost.userTaggedPost = this.userTaggedToDB;       
 
@@ -125,9 +119,6 @@ export class AddPostComponent implements OnInit {
     }
   }
 
-
-  //Try
-
   initUsers(){
     this.AddPostService.getUsers().subscribe((result)=>{
       for (let index = 0; index < result.length; index++) {
@@ -144,14 +135,11 @@ export class AddPostComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
     if (value) {
       let tag ={} as Tag;
       tag.content = value;
       this.tags.push({content:value});
     }
-
-    // Clear the input value
     event.chipInput!.clear();
   }
 
@@ -162,19 +150,12 @@ export class AddPostComponent implements OnInit {
       this.tags.splice(index, 1);
     }
   }
-  //Try
 
 
-  //TryTagUsers
+
   addUser(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-    // Add our fruit
     if (value) {
-      // for (let i = 0; i < this.userNames.length; i++) {
-      //   if(value==this.userNames[i]){
-      //     this.userTagged.push(value);
-      //   }       
-      // }
       for (let i = 0; i < this.usersFromDB.length; i++) {
         if(value==this.usersFromDB[i].userName){
           this.userTagged.push(value);
@@ -184,7 +165,6 @@ export class AddPostComponent implements OnInit {
         }       
       }
     }
-    // Clear the input value
     event.chipInput!.clear();
     this.userCtrl.setValue(null);
   }
@@ -206,7 +186,6 @@ export class AddPostComponent implements OnInit {
          this.userTaggedToDB.push(userTag);
       }       
     }
-    //this.userInput.nativeElement.value = '';
     this.userCtrl.setValue(null);
   }
 
@@ -215,5 +194,4 @@ export class AddPostComponent implements OnInit {
 
     return this.userNames.filter(user => user.toLowerCase().includes(filterValue));
   }
-  //TryTagUsers
 }

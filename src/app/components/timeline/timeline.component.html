@@ -21,6 +21,15 @@
          #{{tag.content}}
         </span>
       </div>
+      <div class="usertags-container">
+        <span class="tag" *ngFor="let usertag of post.userTaggedPost">
+          <span class="tag" *ngFor="let user of usersFromDB">
+            <span class="tag" *ngIf="(user.id == usertag.userId)">
+              @{{user.userName}}
+            </span>
+          </span>
+        </span>
+      </div>
       </mat-card-content>
       <mat-card-actions>
         <div class="all">

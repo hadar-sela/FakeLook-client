@@ -5,6 +5,9 @@ import { first } from 'rxjs';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 import { RouterServiceService } from 'src/app/services/router-service.service';
+import { AddPostService } from 'src/app/services/add-post.service';
+import { User } from 'src/app/models/user';
+
 
 
 @Component({
@@ -22,8 +25,9 @@ export class TimelineComponent implements OnInit {
   newpost!: string
   showComments:boolean[]=[]
   shownewComments:boolean[]=[]
+  usersFromDB: User[] = [];
 
-  constructor(private _snackBar: MatSnackBar,private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { 
+  constructor(private AddPostService: AddPostService, private _snackBar: MatSnackBar,private postService: PostService,private readonly router: Router,private routerService: RouterServiceService) { 
     this.countLike=[]
     this.ispostlike=[]
    
@@ -42,6 +46,8 @@ export class TimelineComponent implements OnInit {
     this.initList();
     // for 0 -> list.length
     // comment. (list[i].comment)
+    this.initUsers();
+
   }
   filterListener() {
     this.routerService.filterChange.subscribe((event)=>{
@@ -83,6 +89,7 @@ export class TimelineComponent implements OnInit {
       }
     })
 }
+
 initlikepostnumber(){
   for(var i=0; i<this.list.length; i++)
   {
@@ -128,10 +135,21 @@ addComment(id: number){
     console.log(result)
     this._snackBar.open("comment published","Dismiss",{
       duration:3000
-    
+
     });
     this.initList();
     this.newpost=""
+  })
+}
+
+initUsers(){
+  this.AddPostService.getUsers().subscribe((result)=>{
+    for (let index = 0; index < result.length; index++) {
+      var user = {} as User;
+      user.userName = result[index].userName;
+      user.id = result[index].id;
+      this.usersFromDB.push(user);
+    }
   })
 }
 }
